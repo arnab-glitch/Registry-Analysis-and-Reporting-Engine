@@ -1,0 +1,2901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RegEx Forensic Report - 22</title>
+    <link rel="stylesheet" href="report_style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER WITH LOGO ================= -->
+<header class="header">
+    <div class="logo-container">
+        <svg width="420" height="140" xmlns="http://www.w3.org/2000/svg">
+            <rect width="420" height="140" fill="transparent"/>
+
+            <!-- Neon Circle -->
+            <circle cx="210" cy="60" r="38" fill="#111" stroke="#00b7ff" stroke-width="4"/>
+
+            <!-- Your PNG -->
+            <image href="regex_logo.png"
+                   x="178"
+                   y="28"
+                   width="64"
+                   height="64"
+                   preserveAspectRatio="xMidYMid meet"/>
+        </svg>
+
+        <h1 class="tool-title">RegEx Forensics</h1>
+        <div class="tool-subtitle">
+             RegEx v1.0 · Developed by Arnab Das
+        </div>
+    </div>
+</header>
+
+
+
+<!-- ================= TABS ================= -->
+<div class="tabs">
+
+    <button class="tab-button active" onclick="openTab('overview')">Overview</button>
+    <button class="tab-button" onclick="openTab('usb')">USB Artifacts</button>
+    <button class="tab-button" onclick="openTab('evidence')">Evidence Summary</button>
+    <button class="tab-button" onclick="openTab('logs')">Log Output</button>
+
+</div>
+
+
+
+<!-- ================= TAB CONTENT: OVERVIEW ================= -->
+<section id="overview" class="tab-content active">
+
+    <h2>Case Overview</h2>
+
+    <table class="meta-table">
+        <tr><th>Case ID</th><td>22</td></tr>
+        <tr><th>Operator</th><td>Mohit Sharma</td></tr>
+        <tr><th>Report Date</th><td>2025-11-20T18:24:35.808071</td></tr>
+        <tr><th>Acquisition Mode</th><td>FALLBACK</td></tr>
+        <tr><th>Total Evidence Items</th><td>243</td></tr>
+        <tr><th>Manifest Hash (SHA256)</th><td>6A1B98A67B4D4D00D46B80D7C4DA72C12E11DC3396B54695DBE70E9F7BED9BF5</td></tr>
+    </table>
+
+    <h2>Analysis Summary</h2>
+    <p>RegEx v1 performed a full FALLBACK-mode forensic acquisition. </p>
+
+    <h3>Key Findings</h3>
+    <ul>
+        
+        <li>3 USB devices detected.</li>
+        
+        <li>243 evidence items extracted.</li>
+        
+        <li>Manifest hash: 6A1B98A67B4D4D00D46B80D7C4DA72C12E11DC3396B54695DBE70E9F7BED9BF5</li>
+        
+        <li>Reported by Mohit Sharma using RegEx v1.0</li>
+        
+    </ul>
+
+</section>
+
+
+
+<!-- ================= TAB CONTENT: USB ================= -->
+<section id="usb" class="tab-content">
+
+    <h2>USB Device History</h2>
+
+    <table class="evidence-table">
+        <thead>
+            <tr>
+                <th>Device Path</th>
+                <th>Serial</th>
+                <th>Model</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_SanDisk&Prod_Cruzer_Blade&Rev_1.00\03001309110724091240&0</td>
+                <td></td>
+                <td>REG_SZ</td>
+                <td>Connected</td>
+            </tr>
+            
+            <tr>
+                <td>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USBSTOR\Disk&Ven_VendorCo&Prod_ProductCode&Rev_2.00\9160721044259110923&0</td>
+                <td></td>
+                <td>REG_SZ</td>
+                <td>Connected</td>
+            </tr>
+            
+            <tr>
+                <td>MountedDevices</td>
+                <td></td>
+                <td>(binary data)</td>
+                <td>Connected</td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+</section>
+
+
+
+<!-- ================= TAB CONTENT: EVIDENCE ================= -->
+<section id="evidence" class="tab-content">
+
+    <h2>Evidence Items</h2>
+
+    <!-- SEARCH BAR -->
+    <input type="text" id="evidence-search" placeholder="Search artifacts..." oninput="filterEvidence()" class="search-input">
+
+    <!-- SCROLLABLE WRAPPER -->
+    <div class="evidence-scroll">
+    <table class="evidence-table" id="evidence-table">
+        <thead>
+            <tr>
+                <th>Artifact</th>
+                <th>Source</th>
+                <th>Status</th>
+                <th>SHA256</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <td>DEFAULT</td>
+                <td>DEFAULT (registry export)</td>
+                <td>
+                  
+                    <span class="badge fail">FAIL</span>
+                  
+                </td>
+                <td>None</td>
+            </tr>
+        
+            <tr>
+                <td>SAM</td>
+                <td>SAM (registry export)</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>9DA2F4ADB3E15234115FFF8E85B4A704B2EEDA3AF346301EBA144D96E299F18B</td>
+            </tr>
+        
+            <tr>
+                <td>SECURITY</td>
+                <td>SECURITY (registry export)</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>FB0FC5E6D8CB0376D4885BF0E711DA92AF9B23FB4589E53895A35047AEEED839</td>
+            </tr>
+        
+            <tr>
+                <td>SOFTWARE</td>
+                <td>SOFTWARE (registry export)</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>C9CDC1C5904E5C52CEFA2FBD46A6C2D69FD13EAE7381F601A6CAE5B0405D6449</td>
+            </tr>
+        
+            <tr>
+                <td>SYSTEM</td>
+                <td>SYSTEM (registry export)</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>991C0C1E66CE0EFF9E945DBAD44563A2E596310A2C72B0FBAB4FEB117DE06BB0</td>
+            </tr>
+        
+            <tr>
+                <td>reg_export</td>
+                <td>reg_export (unknown source)</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>76341C694B9AF83FA37653DC3FC64CC4A6192889B18AA2B1B146F01A3F192BEA</td>
+            </tr>
+        
+            <tr>
+                <td>reg_export</td>
+                <td>reg_export (unknown source)</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>732C68340D191A3465C2B7C5361777DA61A0210D736E4876391067A310F310CC</td>
+            </tr>
+        
+            <tr>
+                <td>reg_export</td>
+                <td>reg_export (unknown source)</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>51BD408BCDA2F67A0F1C8645532F2151F3F23E2DD953146E753332734D56B1D0</td>
+            </tr>
+        
+            <tr>
+                <td>NTUSER.DAT</td>
+                <td>C:\Users\arnab9436\NTUSER.DAT</td>
+                <td>
+                  
+                    <span class="badge fail">FAIL</span>
+                  
+                </td>
+                <td>None</td>
+            </tr>
+        
+            <tr>
+                <td>UsrClass.dat</td>
+                <td>C:\Users\arnab9436\AppData\Local\Microsoft\Windows\UsrClass.dat</td>
+                <td>
+                  
+                    <span class="badge fail">FAIL</span>
+                  
+                </td>
+                <td>None</td>
+            </tr>
+        
+            <tr>
+                <td>NTUSER.DAT</td>
+                <td>C:\Users\Public\NTUSER.DAT</td>
+                <td>
+                  
+                    <span class="badge fail">FAIL</span>
+                  
+                </td>
+                <td>None</td>
+            </tr>
+        
+            <tr>
+                <td>UsrClass.dat</td>
+                <td>C:\Users\Public\AppData\Local\Microsoft\Windows\UsrClass.dat</td>
+                <td>
+                  
+                    <span class="badge fail">FAIL</span>
+                  
+                </td>
+                <td>None</td>
+            </tr>
+        
+            <tr>
+                <td>evtx</td>
+                <td>evtx (unknown source)</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>0F191FA311369FB2A7E3C2F5A6720BA53F3AC46D59B2B841A58C2A1A3A307E4D</td>
+            </tr>
+        
+            <tr>
+                <td>evtx</td>
+                <td>evtx (unknown source)</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>F932775C0B9522D311A9095B1438ADC5114D496B27E56B43C48D605C5CB94BC4</td>
+            </tr>
+        
+            <tr>
+                <td>evtx</td>
+                <td>evtx (unknown source)</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>4BB14CE9180AEBBF50A7DD84AD6C02AB15ED9961CB442B14300EBDFB4C62F222</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\AM_BASE.EXE-C1AEB46B.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>A36153C881633F2AE0C86D6CB24ACD565D29C2C966310ECFAEB154F20593B357</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\AM_DELTA.EXE-F581BB16.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>9D9CE2357B2474627EF28A70308D80D411D65C69B4907545B29C7C8187241367</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\AM_DELTA_PATCH_1.441.119.0.EX-727F5AAF.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>74E365B50D397C1AA972D7CE70E225285C00C229A9255ECFFA36967AB186D987</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\AM_DELTA_PATCH_1.441.128.0.EX-C8249DE7.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>6891EB3BE3D6308A9C1957B106F09F48AD37CF594E432D7AC03FC6A9BC339BB2</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\AM_ENGINE.EXE-E190975A.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>1C2A6C364297B171DE04E6C7360057BE36D3BD07C92ACBDF7A4EC45F38886564</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\APPLICATIONFRAMEHOST.EXE-0CF44CC4.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>16BEC3C800ED42E2CD0661E8BB4D665399B43655C7B680F01F8F8528F55C004D</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\AUDIODG.EXE-D0D776AC.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>36DC406EB45D0F3F08CC6DA50D067BE5F94D3BCE3A060EDBC6AD7DD2168002CE</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\BACKGROUNDTASKHOST.EXE-3E9BC537.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>7460220BBC36B4E09874715FBA5AA902FF093130755E9745E966D1821040A9FC</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\BACKGROUNDTASKHOST.EXE-40AF9EDA.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>29E70295F051FC7277318B4411FA0D4C9F9A15D19F23D8664A64453BFC854894</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\BACKGROUNDTASKHOST.EXE-4D25F761.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>52817F482669C7B649094A03F23D9E94DE72E76A705A05D3C20CE1C64E3613D9</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\BACKGROUNDTASKHOST.EXE-5DF49268.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>DF6C9EC01B15507D7D1164DA7F3AB11A5D2AB0BFCB99AE5D73FB58753AC3F928</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\BACKGROUNDTASKHOST.EXE-7913EF5F.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>8AFA8A3BCFEFA45FE5EBF10454D367ECBC809C537D451EB7FC14A607A775B3F8</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\BACKGROUNDTASKHOST.EXE-B490FF36.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>2D8781FFC5E4F82A5C283C75FAEB51C268A69CD682BD5227130CA37A22CDCCAE</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\BACKGROUNDTASKHOST.EXE-BE6D52AF.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>04CE0F768AA60958BED8C99F3FF5CDA4319F6293B5CD51090F4C70C638F38634</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\BACKGROUNDTASKHOST.EXE-FE316DBB.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>32423E02A163D01087E4FE9A1EB0BA9D352328D1D508E60536E76090D770DC27</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\BACKGROUNDTRANSFERHOST.EXE-6EFB4466.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>1FA2BF7EF43374C60A4D5775D1BF7D6FED6593961D6808794AFA4A126BCCE555</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\BACKGROUNDTRANSFERHOST.EXE-940E9620.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>749BE2474BDF4E41E642D13600AAAC230ED824D68B6811F6E436F5D39A66943E</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\BACKGROUNDTRANSFERHOST.EXE-D91F22C8.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>C20CD10DE49C738A6D7F914CC34439BA6626033775627785E4A51B916689BE1C</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\BACKGROUNDTRANSFERHOST.EXE-F0FF9E6E.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>72D4ED446D18C9811F44DD9A139C846B7412C648367F6218F719BA1BE9DB5E97</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\BYTECODEGENERATOR.EXE-883FEF79.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>C849CC7A4BDF2BECD2E0FA45FFF2A143F299F81102FD4D60CE648DF5E3A2C7F9</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\CMD.EXE-89305D47.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>5B3B782B9180D18442181A6BAD433B0E16E6526DF0A241305A77CBB2FA3CBD77</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\COMPATTELRUNNER.EXE-FF885652.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>C26055781C1AFAD046F5FF769B95222A371ACBACA3329E4A7F284C506EBBBE6C</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\COMPPKGSRV.EXE-FC36EA77.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>BAD1032AEF4A7004690F0978C9B8398FE31695F8EE0BCC17A818AA50D3BB94C8</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\CONHOST.EXE-3218E401.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>5C3CECF4AA494E4214C663B4F441801AB4DA7A308FDFF08D5867BD6A856A38DA</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\CONSENT.EXE-65F6206D.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>A9BED837CB8768C91CF26F191C60A1D8D7BA87EBCF1672FF4F454AF793CDF36B</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\CSC.EXE-17F940BB.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>CF2466A29D97E3E0CFE23A390114E6DDE485C8B280388823EC05FE8E9E53C1D2</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\CTFMON.EXE-AF4187A6.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>4A463B7A4CE86EEA16E086C6D082F6A2B2D97EB9DEE328FCED05430EBB5CC16A</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\CVTRES.EXE-299AD2C9.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>122FCB92BA767EBFEAA65655FAA4148EE448A8D6CD914FF260A1B7AD7DB5A2A0</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\DEFRAG.EXE-738093E8.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>83265392DAC9FF5F91CE918F9C348E6544D43B1B05A885958D974D71BFC802F8</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\DEVICEPROPERTIES.EXE-FB1E7DF4.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>1337FC6B6154B4F57E4D3328C2C8E6CE92E1D9482D674B99A96DFFEB975C9FE0</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\DFRGUI.EXE-E344E070.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>DF864EB1EF50A98B4037FD01D8D872AF6A8C2EC097D324B3D8CE6563E44B8A33</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\DLLHOST.EXE-0F726681.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>EB21E53CEE8EF3DB0E1DC6B9AC99227283E19D46FD88BA77889049D9BAA321F7</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\DLLHOST.EXE-3B8267A2.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>8BC67904A602CD650C445A498BCD0C23A20E90895F58E9093B083B36589B9833</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\DLLHOST.EXE-6326BE1D.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>774D1520DE660962218FCA52538C2E891582DB321EB64A2B393726715AF89856</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\DLLHOST.EXE-69DC4D68.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>A8BA4F6C50897D8CD4F13A1E84B4E467873DBAEF89E9525ED0DD84AFDE81ADB8</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\DLLHOST.EXE-71214090.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>A3B7D49EA678578E32016D2FA5CFC981626155EB8F5CDD2607F36CCD01A420F0</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\DLLHOST.EXE-74CFCB84.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>59C5E285E26A3C55A45ADE88111880CF828663BCDA07B5749F38948529E89CED</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\DLLHOST.EXE-82A80DAE.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>B8A9BA0A095AE89BC035E4C740C5C7696A1042E59B803C64BFEF94FCDA2300FE</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\DLLHOST.EXE-893DDF55.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>00781659CACB92E37ADCCC758182D8A3F6FEC32B40E85D758B3F0DB9ED3A22F6</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\DLLHOST.EXE-CB3D53F2.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>D9488124E67E5CBB453751B6CD0AAD4A447DEA806D85A4C859BECC91B56A7B13</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\DLLHOST.EXE-EBC0C559.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>ED3B1E4C676DD86CB57A76AC2FA38CD48D0D6194F83D906270FB49D41EE3109A</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\DRVINST.EXE-5F8E77CD.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>7245E864B8E6D84BF29EBED76C5CCC9366AB6840DA1EAED6CB2D2BFDBEBD4E23</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\DSMUSERTASK.EXE-E65EC6D9.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>B831107DDD1DA12E43F25484E963478C98AEB57E3B28F3BDDE65C4A09B19B58D</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\ELEVATION_SERVICE.EXE-D39C4EA9.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>A739F336025A1CBC9FC0113F467E6D5A258667356B9B98C6E353741B4658C493</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\FILECOAUTH.EXE-79EC6DB7.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>97C72E345911106386475CEBFBE041FA093DA1F88D103F5060ABB5C8AE495324</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\FILECOAUTH.EXE-EB67DFC6.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>3C97C0222FF2BE99C030AFE3BA73FF48B7C3FBB4F14793A153C6884161E1F60D</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\FILESYNCCONFIG.EXE-1D3B5F49.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>0CF80DEBFAC16DA44525099E04B33ACEA8E7727B6DDD4348B6432C3DB943792B</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\FILESYNCCONFIG.EXE-425E121A.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>FE7569F2E25058AC81C3841046E9813D2FD1209C241F3F4C459F9B5B3A9FBA82</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\FILESYNCCONFIG.EXE-AA7369D7.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>5A09ECBB596E84B249EC8574FC6F4074D5793442FF0595D070B2217E5504059E</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\FODHELPER.EXE-9E7B2B38.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>A0B03F5B515829413B9850F0F62912F526DF53D2C4E9D4DF1C7941C586BBE3B6</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\FSQUIRT.EXE-CEB3AAF1.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>A8D54D2E618198B132C50A48F5A5F7D67FE2319AEB38BDEA37B3CD8755C93C60</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\GAMEBAR.EXE-1F5E16BC.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>293650B44374CC060BF15DBFA9D9E900868A1A4826F3DD90A1A82DCCE9238AA1</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\IDENTITY_HELPER.EXE-6B8E7805.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>C0847800E339519F894A80E6FF133581FC0C91587E65C71F0710E1FE94D4DBD7</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\IDENTITY_HELPER.EXE-C8C717B9.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>BE2D1AE28281958DF27D62DFA3F610E204701B0790F90DCFE34F9E37E75C6D91</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\IE4UINIT.EXE-0BC11EF2.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>EC273B4D9589A3FAF2AFDC3A742BD18EFBF6C7CE5701E6904213B4DB986E4F05</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\LAUNCHER.EXE-121343EB.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>69500C764326AF20E67FF19C0E00FEC06E2A4A2A37D3CA00F6B2D09EBFB1ED60</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\LOCALBRIDGE.EXE-1E47F439.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>52D59A2FADB15FBA93B0EED3E42FC5586D181FAFD33F1C74020724FFA3E2211E</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\LOGONUI.EXE-1BEE4A84.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>9E87F17661F84FB539F901A6B11517CDE039F4F65184851DE67610FDF8AFE96D</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MICROSOFTEDGEUPDATE.EXE-0E099B6C.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>9D00E910633E1997137603016358B8D84AF51E4F0898A2DC6512E17055F94E2A</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MICROSOFTEDGEUPDATE.EXE-DC4F2FD2.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>B033F748788B3AC33F929DE90CA2967C021E4D385C3A0294BEC9602085F15BBC</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MICROSOFTEDGEUPDATESETUP_X86_-107F1640.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>058FF84CD7E8FD037DEB925326C7013D31FEE81D819591D002A9B95C43CBC3FD</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MICROSOFTEDGE_X64_142.0.3595.-4C03D257.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>338F9209E445D5EAEAA94AAA5AA003DF538E590F1162069851645EA5AB17B8FB</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MICROSOFTEDGE_X64_142.0.3595.-A48B52F1.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>E29F30D7206838643D594706B3EEAC6B4EE00FE3C056E34F54C6C4632592FB1F</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MICROSOFTEDGE_X64_142.0.3595.-F3F3898F.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>1D25384B94DFE428DD53A59047F0FD84A6BAE337D7A640E159F06ED3D1DBAD7B</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MOFCOMP.EXE-CDA1E783.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>ED2D95C63BE0116AAF2DC4331C555C3AF3009F68A6ACF0EEB508246BC83C5FB2</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MOUSOCOREWORKER.EXE-8C0B73B1.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>9C0B7199F112CAFC0432165AE8FFF3A7A5C590A49CD5D26E5C40433BD7436F12</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MPCMDRUN.EXE-BB72ED6F.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>75D2EF9212C0972BC4220705F2D3A07B3B5E37C31146A9F15F2A277D713363CA</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MPCMDRUN.EXE-BF0CCB3D.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>C9A5DD331EE9E97D22E94CE82EE2C33200B27713F8E31A0999B20E02A867BCBB</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MPDEFENDERCORESERVICE.EXE-1FF1F683.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>D5C4DE2F4D21C96A8DEF253CAE00D86D97338B1386F520D32A1F001540F54E8E</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MPRECOVERY.EXE-AB936DF4.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>1C077B1BB4057905768DEF8929373831953605C2D977109FF320336B226B1458</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MPSIGSTUB.EXE-7C60A359.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>6B3D59236331FAA4A8AE2341EB9600C979700D9631159735C831E3148149A6E5</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MPSIGSTUB.EXE-D67988B1.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>7EB6A5464D8238E0D6F60E469CAA9AC6E5FDE05C60ADCEAB81DCCC308E916CD4</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MPSIGSTUB.EXE-EE70EE76.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>31D27C827E71C876E269A5004085B71105D1CD245C9EEBDE33935DC10492B299</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MRT.EXE-C3C3D3DA.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>E64DDF81BAA27976F0D5A032494239662723110B6FF0C5F156E324524CA22BDB</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSCORSVW.EXE-98F0699A.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>1FEBF9FA3550EB59F2087A175615DCE683C85D3499DC64A4AC55A10BEF2F0404</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSCORSVW.EXE-FAA88858.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>EDDF9B97499A04FEDAF0589E2AA068D216E75583A2491CA6F3AF16445BA7366E</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSEDGE.EXE-BA103770.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>022DA3F8F93E9B3913A154B896CB40E88D72E5E1A1A93E0F6A4199CC957D4D94</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSEDGE.EXE-BA103771.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>1899CF752E9015633D7F7E97FD4F5B9F29A04E3010031838E7A24BED8CE5DE24</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSEDGE.EXE-BA103772.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>A4F4DA6DBF3509EA117DC9D7064486CEA3E59B8E3B086B784035C7BA0E8D2C99</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSEDGE.EXE-BA103773.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>962435D54C5117D18DB6C49A16D2E0549C21907E8914F91929A0103D21B167C9</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSEDGE.EXE-BA103774.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>EC710F86034C8343FE785DD0DA8377784DB849179146686A14C1ED22F4789AAC</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSEDGE.EXE-BA103777.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>E8A93576E8B7BA7A64C4DC429EF277CB3093D038A68C290AEA1F31B6F5CD4695</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSEDGE.EXE-BA103778.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>096BD6FEC97054F57659AD224DFB94C36B45DAA9F38897FD019D0997E78469AB</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSEDGEWEBVIEW2.EXE-3CDBC8BD.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>BE9B8397A6936223D77A0168066286FE67E6D9B9BF5B3B977497E9903ED251E5</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSEDGEWEBVIEW2.EXE-3CDBC8BE.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>BD12345BFA884D01E3EE36C6FE7076F65FF9D8F6860F888A44B2899011227935</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSEDGEWEBVIEW2.EXE-3CDBC8BF.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>C55057ACAFB54DC5B8E1862771EF9F921F7EAEDB83874B4306BBDC3C529E25F0</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSEDGEWEBVIEW2.EXE-3CDBC8C0.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>A09B21A3044294831C82E41084B1FBABF16E7835DC08CBB70B90DABE5835D53C</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSEDGEWEBVIEW2.EXE-3CDBC8C1.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>8C951AFAEED7A807EF53E761788DFEF9F4E93E01B8337C0C9014837E9169EA39</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSEDGEWEBVIEW2.EXE-3CDBC8C5.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>C9A5359A1E3810891523CF9FA7DFBC47A9C5262C7A1826FE84EDF9EBDA1E020E</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSEDGEWEBVIEW2.EXE-8176B4E5.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>A453EB98DFFD0631FD063ACC8EB0BD5599BE3DFCA164FB809C9F29A25DF6ED0E</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSEDGEWEBVIEW2.EXE-8176B4E6.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>AF5A282D056DDD25995A9904C3B9500D4686335B97FF51E9B9C9D6D059D4F131</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSEDGEWEBVIEW2.EXE-8176B4E7.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>3764F99C3D669E80E71E94CC9C0115DC27FEFB1DBF80F45C2CC673A2DFD18996</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSEDGEWEBVIEW2.EXE-8176B4E8.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>2464E04C44D0EE610C32351D4E1F63332CBA6ED91A7661F7C9330B1F294B8E48</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSEDGEWEBVIEW2.EXE-8176B4E9.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>15D8808A55C1D31DF80BB59FA668A8D3C4E0F5E3BD519D9B85323A771394DBD1</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSEDGEWEBVIEW2.EXE-8176B4ED.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>E468D9EF5A7855C281E5C926132193E549384DC2BFE0D3D9C521F81E801C2107</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSIEXEC.EXE-B5AFA339.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>ACAFF84592D28C82B9345F790533DFD253BCCF7561C15454919DF0709FF021DC</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSMPENG.EXE-0E995F9C.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>DDEE979098D7866EA4993E3396F966C12AA154DC5A7C8AD5063A47473F36FBF7</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\MSMPENG.EXE-B5F6FC1A.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>5E5434918219C4C5BBB548810AB8B42ABB03B33D34D9D019E541887AF0B961AA</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\NET.EXE-1DF3A2F6.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>994E1D5EAE638FAC0D73A9DA8A29B2A7048B5DCDD22B12604F24ACDC72599203</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\NET1.EXE-B8A8247B.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>D3359435EA37AE18286896516DE18EA38142D3AF1309E81717A9A447999113F5</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\NGEN.EXE-8DF18334.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>C1A4B358E2EBE7FB71C559E913BFF5C3A6B6C59861D3329B7DC43046317D4608</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\NGEN.EXE-E9662EB6.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>93B5855AD66E3EB4D5E83962EFE7D05BCDDB7F10772C56F12EB67C5A23F0BFAC</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\NGENTASK.EXE-90AAC3ED.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>623703B221B8136B5E25335748D77B80BE0715BC58630A60ED6091BAD3CFC412</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\NGENTASK.EXE-F262E2AB.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>496998DAAC093F3260A56CB25DECB7010A12C89E35942BD6D6DEDD75F5BCED54</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\NISSRV.EXE-899F0EFA.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>B21835CE84D63BCB2EA4C22EC640CE8F04C624490EA992D564CCACDCFC66A468</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\NISSRV.EXE-AAD799A8.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>E73CAAA23054A3AAE2B1A9B67FF7F3B0C8211963853844FB3CB911F30524AF65</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\NOTEPAD.EXE-EB1B961A.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>4719DE4E660B89FDB3179E853FCB2BA76DA9DCA7932ED117A12BAF1FA8378BC3</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\ONEDRIVE.EXE-618913FA.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>69EF7800342E408153D63C805F2B4F5D43302F5D82E80E281BBC52512AC4DA61</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\ONEDRIVE.SYNC.SERVICE.EXE-E0A80738.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>538DA846821523D2B1E27D0BF0FE72FDC7DEBAD93758D1650065991A6DFBACD0</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\ONEDRIVESETUP.EXE-D8EA6E82.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>0611F0A90C23BC66DA493B9914A838C5E5F0B7A9DEAA9D03F97BE55BEA9BCA09</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\ONEDRIVESETUP.EXE-DB6B36F0.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>40F18BA2708B231799B9C3F82DECCA780805ED0B28825AD229CEFCB70009F11D</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\Op-MSEDGE.EXE-BA103770-00000001.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>9801EFA98615FB136440E8D6051E9F97E9FE0BA746459D9E258BB55A45BBE668</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\OPENWITH.EXE-2DD6FAA1.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>A36B3A59BA8AD3ADA2C5A526E903FFCED550DD2EA1015C710038180E3258ACBB</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\PICKERHOST.EXE-93018817.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>7EF192748D5F23323F487F28DD40DEA0DE41171CFD29807E89D17125B7D273EF</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\POQEXEC.EXE-7C336EAC.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>A2E85CED063606EBA242EDA80FB7FDC5308081AFF186C446DBC70744B7F7950F</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\POWERSHELL.EXE-59FC8F3D.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>DF8292BB08F549C6AE32F44FF858A542E8FD309628B48E5B894DBE06572D5E00</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\POWERSHELL_ISE.EXE-40CF3DCD.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>85A78077CB0005A04608C0CEF0B4D98158EFFAED02386567971EF2830707C3F5</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\REG.EXE-26976709.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>BB33DD74B8695F71A8F1ED09B3BBE0F1285DF1315538D8460F5E81A5C64D56F6</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\REGSVR32.EXE-55A4EE79.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>2D71D086891869E24679C535E4230769EDE5B81317C515ED6C0F1C78BB20D12A</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\REGSVR32.EXE-A65A209D.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>3374F660790FE5F9A8F28F790A36BABFA257B2B0F00A1D9B1971331FD27F7DCF</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNDLL32.EXE-01DDC3AD.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>04A9703ED2796BA8E07ADE5360166F14B099008CAACCFC862C93A83A92CFB0FB</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNDLL32.EXE-61F8EC7A.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>C93563E0ECC83184A3C38585BF4BFF14834B7EFB4BC92E03E2485F53F29E8C8E</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNDLL32.EXE-A051DAB7.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>7D978A67B123EA91D5C9752DB466B36BC23B643AE04A956E29D794494D6012D9</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNDLL32.EXE-F52D40E6.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>4962427A54D5D467A84F8E894F1CA0F719E9BAB3E81500A4174F8EEE5D5F82BB</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-05FB5B22.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>16C4095B331AE7DA7DAC0C6D30FC373B074547D170C594F9F5AD06F4B4E7FCEB</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-067F9059.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>E752C804A08D350909367BA44D8CF185958C40986B63533B67759B51F2827249</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-0E034A9A.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>CC07BD240F1722866DD10359CC7D6043FF6EECD23A07DF3DCB714D5348A0F11B</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-2B0EACDC.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>45534B0A20ECF60A8CE366B0C804E8C87FDB4CD5486673219758BE1735656554</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-320C50B4.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>ADA00ADC9D7B4E5862A4D747D8E334A33D50ECBBA1C00C065B0CA91CAC9D19D7</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-339194DE.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>E914D0C658E6FE9C9C29CE47D109794C205BF629D9BF31EF9D0DD8B38665B12D</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-4B4916C4.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>211E91E01AE6DDB1C07AF81DCC2A9BDA613FC9A0244757ED9F5966C16D3EEB34</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-6C423279.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>EEBEB7305C6E65228442C4662BD54A23C64D6BC0AA93C559CC73998240F3C05C</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-701F3984.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>49CE049087A7BDCA6F975F87628FE549E42350F0F3899566DB609ED751AD28B4</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-74AF1B61.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>3B0604F518D7C0D892CFB1BE0079F18A5F8B6C2B86838632D5AFB47F2E08C3DD</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-7B4F517B.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>0685EA37DC296878BADE60A7556CF0AAAD7AB6AB5B5A352E03AC6FE0C21D82C0</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-7B5C55F3.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>B2EC99A8E3322C3E54C0E9220641E334846A59482D07D0D7459E2F71CC9B7F06</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-8930F334.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>B1032EA00FE35AE8B7BDC3482E828B9342836B80043235DECEEBF5DA6115B64D</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-93728DBB.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>CEFC8D71CD8B540D89E919E45B4D70AC6B1CE77E912C6144DCB5E546CC37F9A1</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-A02FF048.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>A7695EF152CA92301C8308B9B3F1FA38C75A53458B1965862D0FF1600E2AA8DF</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-B51972DD.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>D7DEA129DDE8AC17F2C8DB907F5E5A09835432B24D3321F1DA14A79D4FB64435</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-B93FBC8E.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>3BEBBBA28E85E35498F904A5DB8BBB3ECC0CC1EF79862EDF23C95BC305C3659C</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-C3A3A507.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>31B417277FC6B6F872F92052D05120D12B271ABA037F3A697C7CDBF7FA406CEB</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-C5DFBF78.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>491C66B110122286EBC8BDED109E5011E640A910BD7A598FE266FE034A0CDFA7</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-DF17A402.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>CE2F1424CB313B89EDF5C3EB6AA2ECFFFEA4D4FCF1EDB887864FD4427C0B4CCC</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-E9A58A5A.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>0B9A7839AAE3684A20EEEF40FA58E62F87BF75BEA5694DCF4D1FD786E1437198</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-ED71648C.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>CB2AC4D32D72E6D3F12441779B0B54F7456F455E0A89850DCFAFF5FE655BCEBF</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-EF919D05.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>57EF830937391677C1055C71DBEDA5AC734F14F3103222CE46180187A69A3C61</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-F2249B8F.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>9D23AC3D85BBF2AC3FD9E0D98C53FCE3F471CFDCDF6D74150C8CC2B7DED6A4DF</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\RUNTIMEBROKER.EXE-F3B7E6B6.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>219EC85F8A2F3025652C36A4952A4900677AC22525A693943278FA0ABFD04A0E</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SCHTASKS.EXE-2DE769BF.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>CD4452881B9B14537100EC5E846F8A588397895130ACCCBE5376EEB42C07DF36</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SCHTASKS.EXE-7E9C9BE3.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>7BED24DEE12982C19C5D131173D92E66453B6AAB6399C48D2AA765FD6ED99A3B</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SEARCHAPP.EXE-02F51CF3.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>30D15613AC22803066DEA7A66291EAB761A061EC6537558EF02B653C065DDD64</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SEARCHAPP.EXE-3C17E4A0.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>45F949DE6F6DC048AC992FF5F2FEFEDE4604271E3C744F71EDEB9311BCC19CA6</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SEARCHAPP.EXE-80B2D0C8.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>93EA3442A09956FE1A30F42123F672297A95BE670F8C460AC77547E3C7EEFCFC</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SEARCHAPP.EXE-BE5A30CB.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>FD93F297CD0D05FCFAC6EEA9EF1E763A0C37645B2E0DDD739CFBEED0A90AD43D</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SEARCHFILTERHOST.EXE-AA7A1FDD.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>49BE0992995B90FC7A907FD5FB5135048C46AE103CA2FA0D6BC080F96F7F6130</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SEARCHPROTOCOLHOST.EXE-AFAD3EF9.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>5DC636EFBA0F41F0CD6FE650DA12EBB5A17455EBA8DBE2DFA37CE9B970D646E3</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SECURITYHEALTHSERVICE.EXE-4AC18DFE.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>01FB29E7BFDBA0B8572B8E9D38D00A823B00F5B27DA32664852B8009F09427EA</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SECURITYHEALTHSYSTRAY.EXE-9E333714.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>1F47AF3A9766C2F68A630018A98422C34D059B75498821EABC569E1A00882E90</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SETTINGSYNCHOST.EXE-4912ABB0.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>E07220DF7918E1733ECF19DE750983D3709D452258D1CE5604D3B75AB51072D8</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SETUP.EXE-02CDC50B.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>BB7EE524D2EF4E613B38B3672567FAAA2741DACF403D883A1A54802B23D99872</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SETUP.EXE-4593F5D9.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>8ED62589005F779977F3E37854731EF59859959F41F97FD640B40CD2F9A48B6E</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SETUP.EXE-4CE8CF4B.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>2ACA0FC1BFBBEF9497C62DF037B0E7B7C2561BE6C5709CD56FE6C1775AD64850</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SETUP.EXE-4CE8CF52.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>7BB9E38B536BEB9562AC072E0CF4552783D47700F06576988C41AE2D60B04C67</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SETUP.EXE-EEC9FB0D.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>6FFF912EE9926B6CE4C68D46EF6A9801531E4A891CF42AC4A640559C09949207</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SGRMBROKER.EXE-E6FE19A1.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>38B61EA75FF43FE29372EF8BA2CEAF7A74BB69C12225A338DD5CC80707D48086</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SHELLEXPERIENCEHOST.EXE-9F43D881.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>4CB8BB998C39C9F889171A72B94B568C51319F5427B56280992AECED1E9CE802</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SHELLEXPERIENCEHOST.EXE-DBF2A4C5.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>6F7B1674A2575380CE2549A68ADCC515A6DC57ECFF1F3C9CD4C67D2BF38BC424</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SIHCLIENT.EXE-B820D212.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>6EC5E1A5A9FF8FB76CFDC91CE6B30E5E8E66611E57A2C930F70457A44CD8FCEA</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SIHOST.EXE-473D56F5.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>25805B6269575F02EA9AD292F022861869B3D032DCE66D8B42F25D7DB4168D73</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SLUI.EXE-A65918C4.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>52106100AE9590A3DC3DB333DACAA965220615E69DDE1A5E111CD5FEA6CEE337</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SMARTSCREEN.EXE-4BF07096.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>E1A96039A88A40DD3152CC898DAD8268BFFF00258D5588F663320F6402B6EA66</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SPPEXTCOMOBJ.EXE-F8C1C601.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>EFF4D7761E49B10F57305DFE8BE0C4F050D58B4A2951A799DA848808FE3DF5F3</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SPPSVC.EXE-CBE91656.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>CAC09BB56A3D475C50B1E67FC292847F8E39BCBA45838EC90BBD2D92B6F8B393</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\STARTMENUEXPERIENCEHOST.EXE-7F117E1D.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>D7AF443FC490B8770B6A74CD9A285348016786DFB8A310122B9956054B39D361</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\STARTMENUEXPERIENCEHOST.EXE-CE0607C3.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>5904BDEDFA44FBFE04EA53CAF322150FBEF849A923CA68B86627E1F9FA5A6DBF</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\STOREDESKTOPEXTENSION.EXE-BF56A655.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>2EF3AE02C2AA9C1C6BF543DF17D2932A98DCED48FC1D5D1C1A4227EDACDF4CFF</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\STOREDESKTOPEXTENSION.EXE-C84CF994.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>05E776D7EC1005D92973F6956B01DBC125FDBFA7F42164CF8179C71661BAAFF5</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SVCHOST.EXE-04C8CE0B.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>1DDEABAD15DDB3FBD768C10D608FA8D4E6E301C569EA91B54B9FD2374E5F2252</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SVCHOST.EXE-23788994.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>3A9DFDC98682BA95A4E557DBFC375795881F797CECD6AB96C3EE394E3571CABF</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SVCHOST.EXE-2D2470C4.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>522A922A2EEA261E62157C7853F68ECE83570D02382500CFF62C3E7A4C746B8D</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SVCHOST.EXE-314DB79C.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>C45211874D90A2450AC7DA3FCBCC23E954AF77A380C9D7BEF58BAD9DFAB5FECE</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SVCHOST.EXE-383BACA3.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>639FE68AE274FA2BB6C776958A0C0B7E528F1D31D2206CEAA22250045D7A3D80</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SVCHOST.EXE-3B5B1748.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>E9614BA46A84FF14942049FAFC1C1161102095756B02F2DBB94FBD9742B93112</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SVCHOST.EXE-5E7B2DAC.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>4A0CEF287A041390942807BC53417E302F8EC2E152C8D2E3F21F3AA899B44B1C</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SVCHOST.EXE-6E0BA74A.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>CC2570B63BFAFF7141B69A10ACA1BD9039FDF3D0CF61F56B10A35E14271D0201</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SVCHOST.EXE-7652BBC1.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>15B6571C3785222359C667B1AAA3DA1CD4C5347765B51904C98318B802BF0D6B</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SVCHOST.EXE-82CA1594.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>FB6693BACA5C308D8F83D20EEBB9C2AA2C1C6944768005D7C50847BC5F0C8EC3</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SVCHOST.EXE-8DA0BAAD.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>54E9FB98A2C0A6EC0B9EAD84AF64F3DC48A070772E11A14A75724ED85D8A4E3C</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SVCHOST.EXE-8FD92526.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>CB3BC53DBAE8C4E08B16232C85368F43E1704F5D229189CAEBA7E03A957069ED</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SVCHOST.EXE-93CEEE07.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>95DCFF38E6F5249855D3DD58F528C1236B902E2B7ED4CC98C1454343F74AB094</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SVCHOST.EXE-A1EADA59.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>C85F338A1D0C1E11D43C6E9201DE4303CAEEE6B38D63310FDAE2DF313DF9ADD4</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SVCHOST.EXE-B421B09A.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>EA5E5E22B1E135A50354FAB01BF362111BF20F2123BEA8C97D4C0A772E034228</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SVCHOST.EXE-E25434CF.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>74ECD45797C13A1460DAA99138B4D8E57FB6CFC0394576AEA2A8B081AA97E6BB</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SVCHOST.EXE-E4F1E9AB.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>7509C746BEBADA1F9B31944F28400D86175163646AAE1A69973F490E023E279C</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\SVCHOST.EXE-F737CE0B.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>0872F98B6D4BC8D52DA59C7E09EC3B31BA6A38EF6C92C8F4F06B90FA88FDA0CA</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\TASKHOSTW.EXE-4DB99E1B.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>3A45106D31B060FA516C1D60D6CF13746020D24F22CA25CA4411DEB19220BF8D</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\TASKKILL.EXE-609E34DE.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>76FE463CE53D5B49E9B3596B9991ED0D31140ABACE5A23C703095F9D8F7A432D</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\TASKMGR.EXE-72398DC0.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>C46CB5952CEE36E44B213E523153C08C923A8A19E95B404D740D92AE0E9A6B39</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\TEXTINPUTHOST.EXE-A5366E87.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>E5A6FC1ACE280F29A667C72E1FC6B45E48CF2BB59C3F35E19EDFF9412DF0E970</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\TEXTINPUTHOST.EXE-BD4CA64F.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>843D68FEBE94834B426D73FC5351B4217ADDD0B0BC354F1073D80019EAD6115A</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\TIWORKER.EXE-B690B499.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>DDCB79A9D45C87E342D095FCFFC4BE77C986299F99842661544CD76137A08139</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\TIWORKER.EXE-E97E70AB.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>FE0589396FFA244CFBE868768ACA14EF9FC53AD67C39AD41FFC19D2A50AE8F68</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\TRUSTEDINSTALLER.EXE-031B6478.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>4F69E17B3B9FBEF8B965A6C939D57EDA4089C02618BFFFE754552A640B5C0AFE</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\UNIFIEDINSTALLER.EXE-A858F79C.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>F109B638E6D0086BD0C5C49C31030059E6DFAA40D846FC2604CA97EAD0C0A704</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\UPDATEPLATFORM.AMD64FRE.EXE-1634EC76.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>DB52D83A7C4600411942B6D773783A26A1C8E3CF8C51D03BCA5947287A398D94</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\USEROOBEBROKER.EXE-3FDA13A5.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>2010292C92A8B9005CE237577A50B2A333B678BFF74CB97F7FE5B198EBD4DE98</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\USOCLIENT.EXE-6A3863B1.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>464C6D1BAF60650D4F017F3B217CE99A1B73D9E84C68B01D653EC351AB1611A2</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\VERCLSID.EXE-4D95F5A7.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>AD88033BD5C0DDA2FFA47C36B88AC509716534C462079C2BAB84FD0FEDEFD19E</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\VSSADMIN.EXE-7135D92C.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>176178E83CF59745D5FDD362F64C2A6C1179D7A7E9CEC92C1E67752C201F6D8A</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\VSSVC.EXE-04D079CC.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>D4947D01411BD38F0B2079D81DFBCE3AF8CB789B822E53D29ABE834E0D233EAA</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\WERMGR.EXE-2A1BCBC7.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>3D1CD00A4AC633B77818AE5F1C527F09284CA2B32F9716B6BC5002A6DF248DBA</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\WERMGR.EXE-F41C802B.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>7895708A5DABE630FB5213602BCDAE35E70F96606D10CFCE6FE59AE887915F4D</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\WEVTUTIL.EXE-C09B744F.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>2628FED1C2A0B6435643C7E8565BE9E56763993A2B38B10BB739A3871EFD8749</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\WHATSAPP INSTALLER.EXE-E5FDFC5F.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>13F75270CA1EEC0195590087A62E2E7074858CA0AAE70FEAEA5AF82607A5EAF4</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\WHATSAPP.EXE-0F821F99.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>BB7BC725E777B841F22ECE41D8FA930E5FCBCC67F4787F06964A295737EE1018</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\WINDOWS-KB890830-X64-V5.136.E-D51BE34B.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>8ECC6629E303C0A5845E164EF596C631238CC27DC256E35E083C87F3957F496D</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\WINSTORE.APP.EXE-CBB1EAF7.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>303248A6866344A05B3A19E33C9CEA0F38DD04FFA07E47ED6739A3DE09914EA5</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\WLRMDR.EXE-DDA57653.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>4CBFD2476BB00CB6EE2BBE6170D2472C0F517F9E76AA162231B628FC3E40D418</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\WMIADAP.EXE-369DF1CD.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>12B703BEF8AAA9DC842F2CAD807BDBA255DF997CD0C702D7BC046564E69AD8D5</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\WMIAPSRV.EXE-576286C3.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>0293FB07711DFFF8933F85DC482F79B88015EF7493B8595BE75E9AEB9EDF74E6</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\WMIPRVSE.EXE-43972D0F.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>D11810793D306C142524461B72EF3246829FC433FBA1B3705140C942851DB248</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\WORDPAD.EXE-1BCC3DB7.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>F5E36977E60C7BB014F5E6FB1E2B1EEF4EC9720B074F92308CFE1CB21C07C318</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\WUAUCLT.EXE-830BCC14.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>67F4332AC971F22DB708EC14FEC3A3C5296A22CBCCFCF76D8632FD1B0172EB2B</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\WUDFHOST.EXE-81420B07.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>C7D81796BE943B6BE9F1597470819BFB211510015A7C0A94478799235337C96D</td>
+            </tr>
+        
+            <tr>
+                <td>prefetch</td>
+                <td>C:\Windows\Prefetch\WWAHOST.EXE-EDE7CE84.pf</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td>1F08102CCD88F9B669E4939B0D19F87D628DB628E2E90D6054160FD6E50861BF</td>
+            </tr>
+        
+            <tr>
+                <td>Amcache</td>
+                <td>C:\Windows\AppCompat\Programs\Amcache.hve</td>
+                <td>
+                  
+                    <span class="badge fail">FAIL</span>
+                  
+                </td>
+                <td>None</td>
+            </tr>
+        
+            <tr>
+                <td>usb_history_csv</td>
+                <td>usb_history_csv (unknown source)</td>
+                <td>
+                  
+                    <span class="badge ok">OK</span>
+                  
+                </td>
+                <td></td>
+            </tr>
+        
+        </tbody>
+    </table>
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ================= TAB CONTENT: LOGS ================= -->
+<section id="logs" class="tab-content">
+
+    <h2>Acquisition Log Output</h2>
+    <pre class="log-block">﻿2025-11-20T18:15:55+05:30	Evidence root: F:\RegEx_Evidence\22
+2025-11-20T18:15:55+05:30	Operator: Mohit Sharma ; CaseID: 22
+2025-11-20T18:15:55+05:30	diskshadow not available or no free drive letter; skipping VSS attempt.
+2025-11-20T18:15:55+05:30	Fallback mode: full forensic exports (reg save + reg export + wevtutil + best-effort copies)
+2025-11-20T18:15:55+05:30	REG SAVE HKLM\DEFAULT
+2025-11-20T18:15:55+05:30	REG SAVE HKLM\SAM
+2025-11-20T18:16:06+05:30	REG SAVE HKLM\SECURITY
+2025-11-20T18:16:09+05:30	REG SAVE HKLM\SOFTWARE
+2025-11-20T18:16:52+05:30	REG SAVE HKLM\SYSTEM
+2025-11-20T18:16:56+05:30	REG EXPORT HKLM\SYSTEM\CurrentControlSet\Enum\USBSTOR
+2025-11-20T18:16:56+05:30	REG EXPORT HKLM\SYSTEM\CurrentControlSet\Enum\USB
+2025-11-20T18:16:56+05:30	REG EXPORT HKLM\SYSTEM\MountedDevices
+2025-11-20T18:16:56+05:30	ERROR copying C:\Users\arnab9436\NTUSER.DAT -> F:\RegEx_Evidence\22\Extracted_Hives\arnab9436\NTUSER.DAT : The process cannot access the file 'C:\Users\arnab9436\NTUSER.DAT' because it is being used by another process.
+2025-11-20T18:16:56+05:30	ERROR copying C:\Users\arnab9436\AppData\Local\Microsoft\Windows\UsrClass.dat -> F:\RegEx_Evidence\22\Extracted_Hives\arnab9436\UsrClass.dat : The process cannot access the file 'C:\Users\arnab9436\AppData\Local\Microsoft\Windows\UsrClass.dat' because it is being used by another process.
+2025-11-20T18:16:57+05:30	MISSING: C:\Users\Public\NTUSER.DAT
+2025-11-20T18:16:57+05:30	MISSING: C:\Users\Public\AppData\Local\Microsoft\Windows\UsrClass.dat
+2025-11-20T18:16:57+05:30	Exporting channel System -> F:\RegEx_Evidence\22\Event_Logs\System.evtx
+2025-11-20T18:16:57+05:30	Exporting channel Application -> F:\RegEx_Evidence\22\Event_Logs\Application.evtx
+2025-11-20T18:16:57+05:30	Exporting channel Security -> F:\RegEx_Evidence\22\Event_Logs\Security.evtx
+2025-11-20T18:17:13+05:30	ERROR copying C:\Windows\AppCompat\Programs\Amcache.hve -> F:\RegEx_Evidence\22\Amcache\Amcache.hve : The process cannot access the file 'C:\Windows\AppCompat\Programs\Amcache.hve' because it is being used by another process.
+2025-11-20T18:17:14+05:30	USB history exported to F:\RegEx_Evidence\22\usb_history.csv
+2025-11-20T18:17:15+05:30	Manifest written (hash=6A1B98A67B4D4D00D46B80D7C4DA72C12E11DC3396B54695DBE70E9F7BED9BF5)
+2025-11-20T18:17:17+05:30	Summary written to F:\RegEx_Evidence\22\operation_summary.txt
+2025-11-20T18:17:17+05:30	=== RegEx v1 acquisition COMPLETE ===
+2025-11-20T18:17:17+05:30	Exiting.
+</pre>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <p>Generated by RegEx v1.0 · Developed by Arnab Das</p>
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+function openTab(tab) {
+    document
+        .querySelectorAll(".tab-content")
+        .forEach(t => t.classList.remove("active"));
+    document
+        .querySelectorAll(".tab-button")
+        .forEach(b => b.classList.remove("active"));
+
+    document.getElementById(tab).classList.add("active");
+    event.target.classList.add("active");
+}
+
+/* SEARCH FUNCTION FOR EVIDENCE TABLE */
+function filterEvidence() {
+    let q = document.getElementById("evidence-search").value.toLowerCase();
+    let rows = document.querySelectorAll("#evidence-table tbody tr");
+
+    rows.forEach(row => {
+        let text = row.innerText.toLowerCase();
+        row.style.display = text.includes(q) ? "" : "none";
+    });
+}
+</script>
+
+</body>
+</html>
