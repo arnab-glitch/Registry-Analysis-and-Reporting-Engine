@@ -1,0 +1,174 @@
+/* GLOBAL */
+body {
+  background: #0d0d0d;
+  color: #e6e6e6;
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding-top: 25px;
+}
+
+.logo-container {
+  text-align: center;
+}
+
+.tool-title {
+  color: #00eaff;
+  font-size: 34px;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+.tool-subtitle {
+  color: #aaa;
+  font-size: 15px;
+  margin-top: 4px;
+  margin-bottom: 20px;
+}
+
+/* TABS */
+.tabs {
+  display: flex;
+  justify-content: center;
+  background: #111;
+  padding: 10px 0;
+  border-bottom: 2px solid #00b7ff;
+}
+
+.tab-button {
+  background: #111;
+  color: #bbb;
+  border: none;
+  padding: 10px 24px;
+  cursor: pointer;
+  margin: 0 5px;
+  font-size: 15px;
+  border-bottom: 2px solid transparent;
+  transition: 0.2s;
+}
+
+.tab-button:hover {
+  color: #00eaff;
+}
+
+.tab-button.active {
+  color: #00eaff;
+  border-bottom: 2px solid #00eaff;
+}
+
+/* CONTENT */
+.tab-content {
+  display: none;
+  padding: 30px 60px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+h2 {
+  color: #00b7ff;
+  margin-bottom: 10px;
+  border-left: 4px solid #00b7ff;
+  padding-left: 8px;
+}
+
+/* META TABLE */
+.meta-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 25px;
+}
+
+.meta-table th, .meta-table td {
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.meta-table th {
+  background: #111;
+  color: #00eaff;
+  width: 220px;
+}
+
+/* EVIDENCE TABLES */
+.evidence-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.evidence-table th, .evidence-table td {
+  padding: 10px;
+  border: 1px solid #333;
+}
+
+.evidence-table th {
+  background: #111;
+  color: #00eaff;
+}
+
+/* LOG BLOCK */
+.log-block {
+  background: #111;
+  color: #ccc;
+  padding: 18px;
+  border: 1px solid #333;
+  font-size: 13px;
+  white-space: pre-wrap;
+  border-radius: 6px;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  background: #000;
+  margin-top: 40px;
+  color: #777;
+  font-size: 14px;
+}
+/* STATUS BADGES */
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 13px;
+  display: inline-block;
+}
+
+.badge.ok {
+  background: #2ecc71;
+  color: #0d2a12;
+}
+
+.badge.fail {
+  background: #ff6b6b;
+  color: #2a0000;
+}
+/* Search input */
+.search-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  background: #0f0f0f;
+  color: #e6e6e6;
+  border: 1px solid #333;
+  border-radius: 6px;
+}
+
+/* Scroll container */
+.evidence-scroll {
+  max-height: 380px;
+  overflow-y: auto;
+  border: 1px solid #222;
+  border-radius: 6px;
+}
+
+
