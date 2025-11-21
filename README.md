@@ -28,6 +28,16 @@
 
 <br><br>
 
+## 🔗 Related Project
+
+Need the acquisition tool to collect Windows registry artifacts?
+
+[![Related Tool](https://img.shields.io/badge/Portable%20Registry%20Acquisition%20Tool-ff4df0?style=for-the-badge)](https://github.com/arnab-glitch/Portable-Registry-Acquisition-Tool)
+
+This is the companion evidence collection tool required before running the analysis engine.
+
+---
+
 <!-- INTRO SECTION -->
 <h2 style="color:#00eaff;">🔍 Overview</h2>
 
