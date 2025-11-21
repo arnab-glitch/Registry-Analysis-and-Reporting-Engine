@@ -40,3 +40,12 @@ Using Jinja2:
 - Tabs: Overview, USB, Evidence, Logs
 - File saved to: /output/RegEx_Report.html
 
+The HTML report can be viewed in any browser.
+
+---
+
+## Notes
+- The workflow is fully offline  
+- No external dependencies besides Python/Jinja2  
+- Output is static HTML (no server required)  
+
